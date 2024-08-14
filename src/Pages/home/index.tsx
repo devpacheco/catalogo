@@ -22,7 +22,7 @@ interface ProductProps {
     price: string;
     tamanho: string;
     parcela: string;
-    images: ImageItemProps;
+    images: ImageItemProps[];
     created: string;
  }
 
