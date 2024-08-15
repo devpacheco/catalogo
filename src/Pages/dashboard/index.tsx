@@ -9,6 +9,7 @@ import { ref, deleteObject } from "firebase/storage"
 
 import { db } from "../../Services/firebaseConnection"
 import { doc, deleteDoc, getDocs, query, orderBy, collection } from "firebase/firestore"
+import toast from "react-hot-toast";
 
 interface ImageProps {
     uid: string;
@@ -75,6 +76,9 @@ export function Dashboard(){
 
             try{
                 await deleteObject(imageRef)
+                toast("Tênis Excluido com sucesso", {
+                    icon: "🗑"
+                })
             }catch(err){
                 console.log("ERROR AO AO TENTAR EXCLUIR IMAGEM")
             }
@@ -89,7 +93,7 @@ export function Dashboard(){
 
             <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-3">
                 {product.map((item)=>(
-                    <section className="w-full bg-bege rounded-md p-4 shadow-lg hover:shadow-2xl duration-500 relative">
+                    <section key={item.id} className="w-full bg-bege rounded-md p-4 shadow-lg hover:shadow-2xl duration-500 relative">
 
                             <button 
                             onClick={()=> handleDeleteProduct(item)}

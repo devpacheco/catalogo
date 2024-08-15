@@ -61,7 +61,7 @@ export function Detail(){
     },[id])
 
     function handlePedido(){
-        const number = "+5581989768611"
+        const number = "+5581989801354"
                 
         var url = `https://wa.me/${number}?text=Nome: ${product?.name}%0aPreço: ${product?.price}%0aTamanho: ${input}%0aCor: ${product?.cor}`;
 

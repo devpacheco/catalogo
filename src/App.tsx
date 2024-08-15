@@ -5,6 +5,7 @@ import { Login } from "./Pages/login";
 import { Dashboard } from "./Pages/dashboard";
 import { New } from "./Pages/dashboard/new";
 import { Detail } from "./Pages/detail";
+import { Notfound } from "./Pages/error";
 import { Layout } from "./Components/layout";
 
 import { Private } from "./routes/private";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         {
           path: "/detail/:id",
           element: <Detail/>
+        },
+        {
+          path: "*",
+          element: <Notfound/>
         }
       ]
     },
