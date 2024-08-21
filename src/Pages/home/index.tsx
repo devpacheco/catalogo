@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container } from "../../Components/Container"
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaImage } from "react-icons/fa6";
 
 import BannerOne from "../../assets/banner (1).png"
 import BannerTwo from "../../assets/banner (2) .png"
@@ -36,6 +37,7 @@ export function Home(){
     const [productData, setProductData] = useState<ProductProps[]>([]);
     const [search, setSearch] = useState("");
     const [preview, setPreview] = useState<number>(2)
+    const [loadImages, setLoadImages] = useState<string[]>([])
 
     useEffect(()=>{
 
@@ -115,6 +117,11 @@ export function Home(){
         }
 
     },[])
+
+    function handleImageLoad(id: string){
+        setLoadImages((prevImagesLoaded)=> [...prevImagesLoaded, id])
+    }
+
     return(
         <Container>
             <section className="max-w-5xl bg-bege w-full rounded-md mx-auto p-4 flex items-center gap-3 mb-5">
@@ -159,10 +166,15 @@ export function Home(){
                 {productData.map((item)=>(
                 <section key={item.id} className="w-full bg-bege rounded-md p-4 shadow-lg hover:shadow-2xl duration-500">
                     <Link to={`/detail/${item.id}`}>
+                        <div 
+                        className="w-full h-72 rounded-md bg-white mb-4 flex items-center justify-center relative"
+                        style={{display: loadImages.includes(item.id) ? "none" : "block"}}
+                        > <FaImage className="w-full flex items-center justify-center absolute top-28" size={60} color="#5b2614" /> </div>
                         <img 
                         className="max-h-72 rounded-md w-full object-cover mb-4 "
                         src={item.images[0].url} 
                         alt="Foto do Tenis" 
+                        onLoad={ ()=> handleImageLoad(item.id) }
                         />
 
                         <h1 className="text-marrom font-extrabold text-xl mb-4"> {item.name} </h1>
