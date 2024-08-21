@@ -49,7 +49,7 @@ export function Login(){
     return(
         <div className='flex flex-col items-center justify-center h-screen w-full'>
             <img 
-            className='max-w-sm lg:max-w-xl'
+            className='max-w-xs lg:max-w-xl'
             src={ImgLogo} 
             alt="Logo da Aplicação"
             />
@@ -82,7 +82,7 @@ export function Login(){
             </form>
             </div>
 
-            <p className='text-marrom text-sm lg:text-lg'>Caso você não seja Admin <Link className='font-medium' to="/"> Voltar para as Compras </Link> </p>
+            <p className='text-marrom text-sm lg:text-lg text-center'>Caso você não seja Admin <Link className='font-medium' to="/"> Voltar para as Compras </Link> </p>
 
         </div>
     )
