@@ -59,7 +59,7 @@ export function Footer(){
                             </a>
                         </nav>
                         <nav className="flex items-center gap-1" >
-                            <a href="https://wa.me/?text= Olá queria Suporte!" target="_blank">
+                            <a href="https://wa.me/+5581989801354?text= Olá queria Suporte!" target="_blank">
                                 <FaWhatsapp size={30} />
                             </a>
                         </nav>
